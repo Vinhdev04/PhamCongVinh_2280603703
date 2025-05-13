@@ -6,15 +6,15 @@ class QuanLySinhVien:
     def generateID(self):
         maxId = 1
         if self.soLuongSinhVien() > 0:
-            maxId = self.listSinhVien[0].id  # Fixed the colon issue
+            maxId = self.listSinhVien[0]._id
             for sv in self.listSinhVien:
-                if maxId < sv.id:
-                    maxId = sv.id
-            maxId += 1  # Fix the indentation of maxId increment
+                if maxId < sv._id:
+                    maxId = sv._id
+            maxId += 1
         return maxId
     
     def soLuongSinhVien(self):
-        return len(self.listSinhVien)  # Use len() instead of __len__()
+        return len(self.listSinhVien)
     
     def nhapSinhVien(self):
         svId = self.generateID()
@@ -22,7 +22,7 @@ class QuanLySinhVien:
         sex = input("Nhap gioi tinh sinh vien: ")
         major = input("Nhap nganh hoc sinh vien: ")
         diemTB = float(input("Nhap diem trung binh sinh vien: "))
-        sv = SinhVien(svId, name, sex, major, diemTB)  # Fixed variable names
+        sv = SinhVien(svId, name, sex, major, diemTB)
         self.xepLoaiHocLuc(sv)
         self.listSinhVien.append(sv)
         
@@ -33,28 +33,28 @@ class QuanLySinhVien:
             sex = input("Nhap gioi tinh sinh vien: ")
             major = input("Nhap nganh hoc sinh vien: ")
             diemTB = float(input("Nhap diem trung binh sinh vien: "))
-            sv.name = name  # Update existing student info, no need to create new object
-            sv.sex = sex
-            sv.major = major
-            sv.diemTB = diemTB
+            sv._name = name
+            sv._sex = sex
+            sv._major = major
+            sv._diemTB = diemTB
             self.xepLoaiHocLuc(sv)
         else:
             print("Khong tim thay sinh vien co ID = {} khong ton tai.".format(ID))
     
     def sortByID(self):
-        self.listSinhVien.sort(key=lambda x: x.id, reverse=False)
+        self.listSinhVien.sort(key=lambda x: x._id, reverse=False)
     
     def sortByName(self):
-        self.listSinhVien.sort(key=lambda x: x.name, reverse=False)
+        self.listSinhVien.sort(key=lambda x: x._name, reverse=False)
         
     def sortByDiemTB(self):
-        self.listSinhVien.sort(key=lambda x: x.diemTB, reverse=False)
+        self.listSinhVien.sort(key=lambda x: x._diemTB, reverse=False)
     
     def findByID(self, ID):
         searchResult = None
         if self.soLuongSinhVien() > 0:
             for sv in self.listSinhVien:
-                if sv.id == ID:
+                if sv._id == ID:
                     searchResult = sv
         return searchResult
     
@@ -62,9 +62,9 @@ class QuanLySinhVien:
         listSV = []
         if self.soLuongSinhVien() > 0:
             for sv in self.listSinhVien:
-                if keyword.upper() in sv.name.upper():
+                if keyword.upper() in sv._name.upper():
                     listSV.append(sv)
-        return listSV  # Fixed return statement typo
+        return listSV
     
     def deleteById(self, ID):
         isDeleted = False
@@ -75,20 +75,20 @@ class QuanLySinhVien:
         return isDeleted
     
     def xepLoaiHocLuc(self, sv: SinhVien):
-        if sv.diemTB >= 8:
-            sv.hocLuc = "Gioi"
-        elif sv.diemTB >= 6.5:
+        if sv._diemTB >= 8:
+            sv._hocLuc = "Gioi"
+        elif sv._diemTB >= 6.5:
             sv.hocLuc = "Kha"
-        elif sv.diemTB >= 5:
-            sv.hocLuc = "Trung Binh"
+        elif sv._diemTB >= 5:
+            sv._hocLuc = "Trung Binh"
         else:
-            sv.hocLuc = "Yeu"
+            sv._hocLuc = "Yeu"
             
     def showList(self, listSV):
         print("{:<8} {:<8} {:<8} {:<8} {:<8} {:<8}".format("ID", "Name", "Sex", "Major", "DiemTB", "HocLuc"))
         if len(listSV) > 0:
             for sv in listSV:
-                print("{:<8} {:<8} {:<8} {:<8} {:<8} {:<8}".format(sv.id, sv.name, sv.sex, sv.major, sv.diemTB, sv.hocLuc))
+                print("{:<8} {:<8} {:<8} {:<8} {:<8} {:<8}".format(sv._id, sv._name, sv._sex, sv._major, sv._diemTB, sv._hocLuc))
         print("\n")
     
     def getListSinhVien(self):
