@@ -1,77 +1,7 @@
-body {
-  background: linear-gradient(to right, #83a4d4, #b6fbff);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Segoe UI", sans-serif;
-}
-
-.container {
-  background-color: white;
-  padding: 2rem 2.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  animation: fadeIn 0.5s ease-in-out;
-  max-width: 300px;
-  width: 50%;
-}
-
-h4 {
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 1rem;
-}
-
-a {
-  display: block;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  background-color: #0d6efd;
-  color: white;
-  transition: all 0.3s ease;
-}
-
-a:hover {
-  background-color: #084298;
-}
-
-.img {
-  width: 30%;
-  object-fit: cover;
-  /* border-radius: 50%; */
-  margin-bottom: 1rem;
-  display: block; /* Show later if needed */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Bootstrap CSS (included via CDN in HTML) */
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css");
 
-/* Custom styles to enhance Vigenère Cipher tool layout */
+/* Custom styles to enhance Playfair Cipher tool layout */
 body {
   background-color: #f0f2f5;
   font-family: "Segoe UI", Arial, sans-serif;

@@ -79,11 +79,61 @@
           transform: translateY(0);
         }
       }
+      /* Xóa style chung của a trong ul */
+      ul li a {
+        display: block;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      /* Tạo class riêng cho từng button theo thứ tự */
+      ul li:nth-child(1) a {
+        background-color: #0d6efd; /* blue */
+      }
+      ul li:nth-child(1) a:hover {
+        background-color: #084298;
+      }
+
+      ul li:nth-child(2) a {
+        background-color: #198754; /* green */
+      }
+      ul li:nth-child(2) a:hover {
+        background-color: #0f5132;
+      }
+
+      ul li:nth-child(3) a {
+        background-color: #dc3545; /* red */
+      }
+      ul li:nth-child(3) a:hover {
+        background-color: #842029;
+      }
+
+      ul li:nth-child(4) a {
+        background-color: #fd7e14; /* orange */
+      }
+      ul li:nth-child(4) a:hover {
+        background-color: #b4530d;
+      }
+
+      ul li:nth-child(5) a {
+        background-color: #6f42c1; /* purple */
+      }
+      ul li:nth-child(5) a:hover {
+        background-color: #45207a;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <img src="logo CMYK-01.png" alt="security icon" class="img" />
+      <img
+        src="https://th.bing.com/th/id/R.c04d925fc16ae892c069a7fdde5f2fb5?rik=8o2oUkV8gMpGdA&pid=ImgRaw&r=0"
+        alt="security icon"
+        class="img"
+      />
       <h4 class="mb-3">🔐 Bảo mật thông tin nâng cao</h4>
       <ul>
         <li>
@@ -92,9 +142,26 @@
           >
         </li>
         <li>
-          <a href="/rsa" class="text-white text-decoration-none">RSA Cipher</a>
+          <a href="/vigenere" class="text-white text-decoration-none"
+            >Vigenere Cipher</a
+          >
         </li>
-        <!-- Bạn có thể thêm nhiều thuật toán khác tại đây -->
+
+        <li>
+          <a href="/playfair" class="text-white text-decoration-none"
+            >Playfair Cipher</a
+          >
+        </li>
+        <li>
+          <a href="/railfence" class="text-white text-decoration-none"
+            >Railfence Cipher</a
+          >
+        </li>
+        <li>
+          <a href="/transposition" class="text-white text-decoration-none"
+            >TranspositionCipher</a
+          >
+        </li>
       </ul>
     </div>
 

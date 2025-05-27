@@ -79,4 +79,20 @@ class PlayFairCipher:
                 decrypted_text += self.matrix[row1][col2]
                 decrypted_text += self.matrix[row2][col1]
 
-        return decrypted_text
+        # Loại bỏ các ký tự 'X' được chèn vào giữa 2 ký tự giống nhau
+        return self._clean_decrypted_text(decrypted_text)
+
+    def _clean_decrypted_text(self, text):
+        cleaned = ""
+        i = 0
+        while i < len(text):
+            cleaned += text[i]
+            # Nếu gặp A X A thì bỏ X
+            if i + 2 < len(text) and text[i] == text[i + 2] and text[i + 1] == 'X':
+                i += 2
+            else:
+                i += 1
+        # Nếu ký tự cuối là 'X' không cần thiết, loại bỏ
+        if cleaned.endswith('X'):
+            cleaned = cleaned[:-1]
+        return cleaned

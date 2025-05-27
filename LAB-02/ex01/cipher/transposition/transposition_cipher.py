@@ -1,6 +1,7 @@
 class TranspositionCipher:
     def __init__(self):
         pass
+
     def encrypt(self, text, key):
         encrypted_text = ""
         for col in range(key): 
@@ -9,14 +10,25 @@ class TranspositionCipher:
                 encrypted_text += text[pointer]
                 pointer += key
         return encrypted_text
-    
+
     def decrypt(self, text, key):
-        decrypted_text = ['' ] * key
-        row,col = 0,0
+        num_of_cols = key
+        num_of_rows = len(text) // key
+        if len(text) % key != 0:
+            num_of_rows += 1
+
+        num_of_shaded_boxes = (num_of_cols * num_of_rows) - len(text)
+
+        plaintext = [''] * num_of_rows
+        col = 0
+        row = 0
+
         for symbol in text:
-            decrypted_text[col] += symbol
-            col += 1
-            if col == key or (col == key - 1 and row >= len(text) % key):
-                col = 0
-                row += 1
-        return ''.join(decrypted_text)
+            plaintext[row] += symbol
+            row += 1
+
+            if (row == num_of_rows) or (row == num_of_rows - 1 and col >= num_of_cols - num_of_shaded_boxes):
+                row = 0
+                col += 1
+
+        return ''.join(plaintext)
